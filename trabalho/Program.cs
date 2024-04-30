@@ -61,10 +61,10 @@ class HelloWeb
                 return Results.NotFound();
             }
 
-        // Desanexar a entidade existente do contexto
+        
         context.Entry(prodToUpdate).State = EntityState.Detached;
 
-        // Crie um novo objeto Product com o novo nome
+        
         var updatedProduct = new Product(id, newName, prodToUpdate.price, prodToUpdate.amount);
 
         context.products.Update(updatedProduct);
