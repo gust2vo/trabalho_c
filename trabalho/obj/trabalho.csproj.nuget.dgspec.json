@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\trabalho_c\\trabalho\\trabalho.csproj": {}
+    "C:\\git\\trabalho_c - Copia\\trabalho\\trabalho.csproj": {}
   },
   "projects": {
-    "C:\\git\\trabalho_c\\trabalho\\trabalho.csproj": {
+    "C:\\git\\trabalho_c - Copia\\trabalho\\trabalho.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\trabalho_c\\trabalho\\trabalho.csproj",
+        "projectUniqueName": "C:\\git\\trabalho_c - Copia\\trabalho\\trabalho.csproj",
         "projectName": "trabalho",
-        "projectPath": "C:\\git\\trabalho_c\\trabalho\\trabalho.csproj",
+        "projectPath": "C:\\git\\trabalho_c - Copia\\trabalho\\trabalho.csproj",
         "packagesPath": "C:\\Users\\gustavo\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\trabalho_c\\trabalho\\obj\\",
+        "outputPath": "C:\\git\\trabalho_c - Copia\\trabalho\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config"
