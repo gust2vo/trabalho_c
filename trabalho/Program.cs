@@ -56,18 +56,17 @@ class HelloWeb
         {
         }).Produces<Product>();
 
-        app.MapGet("/idProducts", (AppDbContext context, Guid inputId) =>
+        app.MapGet("/productsQuantity", (AppDbContext context, [FromQuery] int minQuantity) =>
         {
-            var prodsId = context.products.Find(inputId);
-            return prodsId is not null ? Results.Ok(prodsId) : Results.NotFound();
-        }).Produces<Product>();
+            var products = context.products.Where(p => p.amount >= minQuantity).ToList();
+            return products.Any() ? Results.Ok(products) : Results.NotFound();
+        }).Produces<List<Product>>();
 
-        app.MapGet("/nameProducts", (AppDbContext context, String inputName) =>
+        app.MapGet("/nameProducts", (AppDbContext context, [FromQuery] string inputName) =>
         {
-            var prodName = context.products.Where(p => p.nameProduct == inputName);
-            return prodName is not null ? Results.Ok(prodName) : Results.NotFound();
-        }).Produces<Product>();
-
+            var prodName = context.products.Where(p => p.nameProduct.Contains(inputName)).ToList();
+            return prodName.Any() ? Results.Ok(prodName) : Results.NotFound();
+        }).Produces<List<Product>>();
         app.MapPatch("/patch", (AppDbContext context, Guid id, [FromBody] string newName) =>
         {
             var prod = context.products.Find(id);
@@ -101,15 +100,15 @@ class HelloWeb
 
         app.MapDelete("/deleteProduct", (AppDbContext context, Guid id) =>
 {
-        var prodDelete = context.products.Find(id);
-        if (prodDelete == null)
-        {
-            return Results.NotFound();
-        }
-            context.products.Remove(prodDelete);
-            context.SaveChanges();
-            return Results.Ok(prodDelete);
-        }).Produces<Product>();
+    var prodDelete = context.products.Find(id);
+    if (prodDelete == null)
+    {
+        return Results.NotFound();
+    }
+    context.products.Remove(prodDelete);
+    context.SaveChanges();
+    return Results.Ok(prodDelete);
+}).Produces<Product>();
 
 
 
